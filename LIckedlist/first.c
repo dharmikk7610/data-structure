@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-int choice,no,source;
+int choice,no,source,rt;
 
 struct node{
 
@@ -53,12 +53,10 @@ void insertrandom(int source,int no)
     struct node *temp ;
     struct node *p;
 
-    for(p=head;p!=NULL;p=p->next)
+    p=head;
+    while(p->data!=source)
     {
-        if(p->data==source)
-        {
-            break;
-        }
+        p=p->next;
     }
     if(p!=NULL)  // 23 24 30  90
     {
@@ -73,12 +71,17 @@ void insertrandom(int source,int no)
 }
 void deletelast()
 {
-    struct node *p;
-    for(p=head;p->next!=last;p=p->next);
-    p->next = NULL;
-    head -> prev = NULL;  
-    free(p);
-    last = p;
+    struct node *temp ;
+    temp=head;
+    while(temp!=NULL)
+    {
+        temp=temp->next;
+    }
+
+    temp->next= NULL;
+    free(temp);
+
+   
 }   
 void deletebegin()
 {
@@ -89,12 +92,88 @@ void deletebegin()
     free(p);
 }
 
+void deleterandom(int source)
+{
+    struct node *temp;
+    struct node *p;
+    p=head;
+
+    while(p->data!=source &&p->next!=NULL)
+    {
+        p=p->next;
+    } 
+   p->next = temp;
+   p->next = temp->next;
+   temp->prev = p;    
+   free(temp);
+}
+
+void rotate(int n)
+{
+    int x;
+    struct node *p;
+    struct node *j,*s;
+    for(int i=1;i<=n;i++) 
+    {
+        x=last->data;
+        // printf("%d",x);
+
+        
+        for(j=head;j<last;j=j->next)
+        {
+            // x = p->data ;
+            j->next->data=j->data;       
+
+        }
+            head->data = p->data;
+        
+
+    }
+    
+   for(s=head;s!=NULL;s=s->next)
+    {
+        printf("%d\t",s->data);
+    }
+}
+
+void sort()
+{
+    struct node *i, *j;
+    for (i = head; i->next != NULL; i = i->next)
+    {
+       for(j = i->next;j!=NULL;j = j->next)
+       {
+        if(i->data > j->data)
+        {
+            int temp = i->data;
+            i->data = j->data;
+            j->data = temp;
+        }
+       }
+    }    
+
+    for(i=head; i->next!=NULL;i=i->next)
+    {
+        printf("%d\t",i->data);
+    }
+
+    
+}
+
 void display()
 {
     struct node *i;
     for(i=head;i!=NULL;i=i->next)
     {
         printf("%d\t",i->data);
+    }
+}
+void reverce()
+{
+    struct node *p,*i;
+    for(p=last;p>=head;p=p->prev)
+    {
+        printf("%d\t",p->data);
     }
 }
 
@@ -110,7 +189,11 @@ void main()
      printf("\n5>>delete in last ");
       printf("\n6>>delete in random ");
      printf("\n7>>display ");
-      printf("\n8>>exit");
+     printf("\n8>> Sorting:");
+     printf("\n9>>reverce");
+      printf("\n10>>rotate no..");
+
+      printf("\n11>>exit");
 
     printf("\nEnter a choice:");
     scanf("%d",&choice);
@@ -143,6 +226,11 @@ void main()
     case 5:
         deletelast();
         break;
+    case 6:
+     printf("\nEnter a source:");
+        scanf("%d",&source);
+    deleterandom(source);
+    break;
 
 
     case 7:
@@ -150,7 +238,21 @@ void main()
     break;
 
     case 8:
+        sort();
+        break;
+
+    case 11:
     exit(0);
+    case 9:
+   reverce();
+    break;
+
+    case 10:
+    printf("how many time rotate:");
+    scanf("%d",&rt);
+    rotate(rt);
+    break;
+
     }
     }
 }

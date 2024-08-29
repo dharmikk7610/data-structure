@@ -86,6 +86,37 @@ void deletelast()
     last = p;
 
 }
+void deletebegin()
+{
+    struct node *ptr;
+    ptr = head;
+    head = head->next;
+    free(ptr);
+
+}
+void deleterandom(int source){
+    struct node *p;
+    struct node *ptr;
+    ptr = malloc(sizeof(struct node *));
+    p=head;
+    while(p->data=source && p!=NULL)
+    {
+        p=p->next;
+                
+    }  // 23 34 45  55
+    if(p==NULL)
+    {
+        printf("\nSource is not found..");
+    }
+    else{
+        ptr = p->next;
+        p->next = ptr->next;
+        free(ptr);
+    }
+
+
+
+}
 
 void display()
 {
@@ -137,9 +168,19 @@ void main()
         scanf("\n%d",&source);  
         insertrandom(no,source);
         break;
+
+    case 4:
+    deletebegin();
+    break;
     
     case 5:
         deletelast(); 
+        break;
+    case 6:
+        printf("\nenter a sounrce:");
+        scanf("%d",&source);
+        deleterandom(source);
+        break;
 
     case 7:
     display();   

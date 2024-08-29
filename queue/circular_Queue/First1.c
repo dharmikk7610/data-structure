@@ -41,7 +41,7 @@ void deQueue()
 }
 void display()
 {
-      if(f==-1 && rear==-1)
+      if(f==-1&&rear==-1)
     {
         printf("\n Queue is empty..");
     }
