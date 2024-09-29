@@ -20,10 +20,10 @@ void main()
         scanf("%d",ptr+i);
         sum = sum + *(ptr+i);
     }
+     max = *(ptr+0);
     for(i=0;i<no;i++)
     {
-        max = *(ptr+0);
-        if(max<*;(ptr+i)){
+        if(max<*(ptr+i)){
             max = *(ptr+i);
         }
     }

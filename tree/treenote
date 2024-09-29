@@ -1,0 +1,18 @@
+Tree: this is a non-linear data structure .
+-----
+-->> in a tree a store data in form of hirercy(level by level)
+ex: file and folder
+-->> in tree our first data is called root
+
+-->>Binary tree: 
+    ----------  in binary tree root element two node left-node,right-node
+
+-->> in BST maximum nodes at level l = 2res to l
+
+
+
+Tree travesal:
+-------------
+1>Inorder: left-root-right  -->> this always in sorting ..
+2>Preorder:root-left-right
+3>postorder:left-right-root 

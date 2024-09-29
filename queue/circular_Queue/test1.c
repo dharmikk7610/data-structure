@@ -9,6 +9,10 @@ void enQueue(int no){
     {
         printf("Queue is full...");
     }
+    else if(rear = f-1)
+    {
+        printf("\n queue is full..");
+    }
 
     else{
         if(rear==size-1)
@@ -37,14 +41,14 @@ void deQueue()
     {
         if(rear==f)
         {
-            printf("%d is deleted",arr[f]);
+            printf("%d is deleted",arr[f]); 
             f=-1;
             rear=-1;
         }
         else if(f==size-1)
         {
              printf("%d is deleted",arr[f]);
-            f=0;
+            f=0;  
         }
         else{
              printf("%d is deleted",arr[f]);

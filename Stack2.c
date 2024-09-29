@@ -16,10 +16,8 @@ void push(char x)
 }
 void pop()
 {
-
-    top--;
      value = st[top];
-
+    top--;
     printf("delete char =%c",value);
 }
 void display()
